@@ -428,24 +428,30 @@ transform:scale(1.2);
 .countdown{
 display:flex;
 justify-content:center;
-gap:40px;
-margin-top:40px;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:30px;
 }
 
 .countdown div{
-background:#111;
-padding:20px 25px;
+background:rgba(0,0,0,0.6);
+padding:12px 16px;
 border-radius:10px;
 text-align:center;
+min-width:70px;
 }
 
 .countdown h3{
-color:#ff7a00;
-font-size:32px;
+font-size:22px;
+color:#ff7a18;
+margin:0;
 }
 
 .countdown p{
-color:#aaa;
+font-size:12px;
+margin:0;
+color:white;
 }
 .team-page{
 padding:120px 8%;
@@ -1043,4 +1049,169 @@ display:flex;
 display:block;
 }
 
+}
+@media (max-width:768px){
+
+.home-content h1{
+font-size:40px;
+}
+
+.tagline{
+font-size:16px;
+}
+
+.event-date{
+font-size:14px;
+}
+
+.explore-btn{
+padding:10px 20px;
+font-size:14px;
+}
+
+}
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#ff7a18;
+}
+
+@media (max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:10px;
+}
+
+.nav-links{
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+}
+.team-name{
+font-size:20px;
+font-weight:600;
+color:white;
+text-align:center;
+margin-top:10px;
+
+background:linear-gradient(90deg,#ff512f,#ff7a18,#ffd200);
+background-size:200%;
+
+-webkit-background-clip:text;
+background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:nameGlow 4s linear infinite;
+}
+
+@keyframes nameGlow{
+0%{background-position:0%}
+100%{background-position:200%}
+}
+.team-card{
+transition:all 0.4s ease;
+}
+
+.team-card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 10px 40px rgba(255,120,0,0.5);
+}
+.team-img{
+width:100%;
+height:320px;
+object-fit:cover;
+transition:0.4s;
+}
+
+.team-card:hover .team-img{
+transform:scale(1.08);
+}
+.team-social{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:10px;
+}
+
+.team-social a{
+font-size:20px;
+color:white;
+transition:0.3s;
+}
+
+.team-social a:hover{
+color:#ff7a18;
+transform:scale(1.3);
+}
+.section-title{
+font-size:40px;
+text-align:center;
+margin-bottom:50px;
+
+background:linear-gradient(90deg,#ff512f,#ff7a18,#ffd200);
+background-size:200%;
+
+-webkit-background-clip:text;
+background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:titleGlow 5s linear infinite;
+}
+
+@keyframes titleGlow{
+0%{background-position:0%}
+100%{background-position:200%}
+}
+.footer-contact a{
+display:flex;
+align-items:center;
+gap:10px;
+margin:8px 0;
+color:white;
+text-decoration:none;
+font-size:16px;
+transition:0.3s;
+}
+
+.footer-contact a:hover{
+color:#ff7a18;
+}
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:22px;
+font-weight:700;
+color:white;
+}
+
+.nav-logo{
+width:40px;
+height:40px;
+object-fit:contain;
 }

@@ -19,20 +19,20 @@ export default function RootLayout({
         {/* NAVBAR */}
 
         <nav className="navbar">
-          <div className="menu-icon">☰</div>
-          <div className="logo-container">
-            <img src="/logo.png" className="nav-logo" />
-            <span className="logo-text">DRAVYON</span>
-          </div>
 
-          <div className="nav-links">
-            <Link href="/">Home</Link>
-            <Link href="/events">Events</Link>
-            <Link href="/team">Team</Link>
-            <a href="#footer">Contact</a>
-          </div>
+<div className="logo">
+  <img src="/logo.png" alt="Dravyon Logo" className="nav-logo"/>
+  <span>DRAVYON</span>
+</div>
 
-        </nav>
+<div className="nav-links">
+<Link href="/">Home</Link>
+<Link href="/events">Events</Link>
+<Link href="/team">Team</Link>
+<Link href="/#footer">Contact</Link>
+</div>
+
+</nav>
 
         {/* PAGE CONTENT */}
 
@@ -83,11 +83,9 @@ export default function RootLayout({
 
       <div className="footer-icons">
 
-        <a
-          href="dravyon2k26@gmail.com"
-        >
-          📧
-        </a>
+        <a href="mailto:dravyon2K26@gmail.com" className="footer-link">
+📧 dravyon2k26@gmail.com
+</a>
 
         <a
           href="https://wa.me/919884054678"

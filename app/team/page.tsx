@@ -54,7 +54,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/organizer1.jpg" alt="faculty"/>
 
-  <h3>R.S.Harshavarthan</h3>
+  <h3 className="team-name">R.S.Harshavarthan</h3>
   <p>Organizer</p>
 
   <div className="team-social">
@@ -81,7 +81,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/organizer2.jpg" alt="faculty"/>
 
-  <h3>Renganathan</h3>
+  <h3 className="team-name">Renganathan</h3>
   <p>Organizer</p>
 
   <div className="team-social">
@@ -108,7 +108,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/faculty1.jpg" alt="faculty"/>
 
-  <h3>Rudhran</h3>
+  <h3 className="team-name">Rahul</h3>
   <p>Organizer</p>
 
   <div className="team-social">
@@ -135,7 +135,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/faculty1.jpg" alt="faculty"/>
 
-  <h3>Sanjai</h3>
+  <h3 className="team-name">Rahul</h3>
   <p>Organizer</p>
 
   <div className="team-social">
@@ -170,7 +170,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/techhead1.jpg" alt="faculty"/>
 
-  <h3>Preediksha</h3>
+  <h3 className="team-name">Preediksha</h3>
   <p>Technical Head</p>
 
   <div className="team-social">
@@ -197,7 +197,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/faculty1.jpg" alt="faculty"/>
 
-  <h3>Suhail</h3>
+  <h3 className="team-name">Rahul</h3>
   <p>Technical Head</p>
 
   <div className="team-social">
@@ -232,7 +232,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/nontechhead1.jpg" alt="faculty"/>
 
-  <h3>Benita Johnson</h3>
+  <h3 className="team-name">Benita Johnson</h3>
   <p>Non Technical Head</p>
 
   <div className="team-social">
@@ -259,7 +259,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/nontechhead2.jpg" alt="faculty"/>
 
-  <h3>Tamizharasi </h3>
+  <h3 className="team-name">Tamizharasi</h3>
   <p>Non Technical Head</p>
 
   <div className="team-social">
@@ -294,7 +294,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/financehead1.jpg" alt="faculty"/>
 
-  <h3>Benjamin</h3>
+  <h3 className="team-name">Benjamin</h3>
   <p>Financial Head</p>
 
   <div className="team-social">
@@ -321,7 +321,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/faculty1.jpg" alt="faculty"/>
 
-  <h3>Harin T </h3>
+  <h3 className="team-name">Rahul</h3>
   <p>Financial Head</p>
 
   <div className="team-social">
@@ -356,7 +356,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/faculty1.jpg" alt="faculty"/>
 
-  <h3>Faculty Name 1</h3>
+  <h3 className="team-name">Rahul</h3>
   <p>Faculty Coordinator</p>
 
   <div className="team-social">
@@ -383,7 +383,7 @@ export default function Team() {
        <div className="team-card">
   <img src="/team/faculty1.jpg" alt="faculty"/>
 
-  <h3>Faculty Name 1</h3>
+  <h3 className="team-name">Rahul</h3>
   <p>Faculty Coordinator</p>
 
   <div className="team-social">
@@ -410,7 +410,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/faculty1.jpg" alt="faculty"/>
 
-  <h3>Faculty Name 1</h3>
+  <h3 className="team-name">Rahul</h3>
   <p>Faculty Coordinator</p>
 
   <div className="team-social">
@@ -445,7 +445,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/faculty1.jpg" alt="faculty"/>
 
-  <h3>Kumaran</h3>
+  <h3 className="team-name">Kumaran</h3>
   <p>Media Head</p>
 
   <div className="team-social">
@@ -480,7 +480,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/workshophead.jpg" alt="faculty"/>
 
-  <h3>Suraj</h3>
+  <h3 className="team-name">Suraj</h3>
   <p>Workshop Head</p>
 
   <div className="team-social">
