@@ -197,7 +197,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/faculty1.jpg" alt="faculty"/>
 
-  <h3 className="team-name">Rahul</h3>
+  <h3 className="team-name">Suhail</h3>
   <p>Technical Head</p>
 
   <div className="team-social">
@@ -318,16 +318,16 @@ export default function Team() {
   </div>
 </div>
 
-        <div className="team-card">
-  <img src="/team/faculty1.jpg" alt="faculty"/>
+       <div className="team-card">
+  <img src="/team/harin.jpg" alt="Harin"/>
 
-  <h3 className="team-name">Rahul</h3>
+  <h3 className="team-name">Harin</h3>
   <p>Financial Head</p>
 
   <div className="team-social">
 
     <a
-      href="https://instagram.com/your_instagram_id"
+      href="https://www.instagram.com/im_hari_5092/"
       target="_blank"
       rel="noopener noreferrer"
     >
