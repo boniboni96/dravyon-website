@@ -1,7 +1,9 @@
 export default function Contact() {
   return (
     <div style={{ padding: "120px 10%", minHeight: "100vh" }}>
-      <h1 style={{ fontSize: "50px", color: "orange" }}>Contact Us</h1>
+      <h2 data-aos="fade-up" className="glow-text">
+  Contact Us
+</h2>
 
       <p style={{ marginTop: "20px" }}>
         📞 Student Coordinator: 9876543210

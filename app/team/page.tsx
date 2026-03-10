@@ -11,7 +11,7 @@ export default function Team() {
       {/* FACULTY */}
       <div className="team-grid two-grid">
 
-        <div className="team-card">
+        <div className="team-card" data-aos="flip-left">
           <img src="/team/faculty1.jpg" alt="faculty"/>
           <h3>Faculty Name 1</h3>
           <p>Faculty Coordinator</p>
@@ -160,6 +160,66 @@ export default function Team() {
 </div>
 
       </div>
+      {/* FINANCIAL HEADS */}
+      <div className="team-role">Financial Heads</div>
+
+      <div className="team-grid two-grid">
+
+        <div className="team-card">
+  <img src="/team/financehead1.jpg" alt="faculty"/>
+
+  <h3 className="team-name">Benjamin</h3>
+  <p>Financial Head</p>
+
+  <div className="team-social">
+
+    <a
+      href="https://www.instagram.com/real_benjamin_danish/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <FaInstagram />
+    </a>
+
+    <a
+      href="https://wa.me/919514418999"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <FaWhatsapp />
+    </a>
+
+  </div>
+</div>
+
+       <div className="team-card">
+  <img src="/team/harin.jpg" alt="Harin"/>
+
+  <h3 className="team-name">Harin</h3>
+  <p>Financial Head</p>
+
+  <div className="team-social">
+
+    <a
+      href="https://www.instagram.com/im_hari_5092/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <FaInstagram />
+    </a>
+
+    <a
+      href="https://wa.me/918870422416"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <FaWhatsapp />
+    </a>
+
+  </div>
+</div>
+
+      </div>
 
 
       {/* TECH HEADS */}
@@ -286,66 +346,6 @@ export default function Team() {
       </div>
 
 
-      {/* FINANCIAL HEADS */}
-      <div className="team-role">Financial Heads</div>
-
-      <div className="team-grid two-grid">
-
-        <div className="team-card">
-  <img src="/team/financehead1.jpg" alt="faculty"/>
-
-  <h3 className="team-name">Benjamin</h3>
-  <p>Financial Head</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://www.instagram.com/real_benjamin_danish/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/919514418999"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-       <div className="team-card">
-  <img src="/team/harin.jpg" alt="Harin"/>
-
-  <h3 className="team-name">Harin</h3>
-  <p>Financial Head</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://www.instagram.com/im_hari_5092/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/918870422416"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-      </div>
 
 
       {/* SPORTS HEADS */}

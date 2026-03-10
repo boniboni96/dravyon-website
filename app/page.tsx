@@ -80,8 +80,9 @@ export default function Home() {
       {/* CENTER CONTENT */}
       <div className="home-content">
 
-        <h1>DRAVYON 2K26</h1>
-
+        <h1 className="hero-title pop-title">
+  DRAVYON 2K26
+</h1>
         <p className="tagline">
           National Level Technical Symposium
         </p>

@@ -49,29 +49,52 @@ export default function Events() {
   return (
     <div className="events-page">
 
-      <h1 className="events-title">Events</h1>
+      {/* TITLE ANIMATION */}
+
+      <h1
+  className="events-title glow-text"
+  data-aos="zoom-in"
+  suppressHydrationWarning
+>
+        Events
+      </h1>
 
       {/* CATEGORY BUTTONS */}
 
-      <div className="event-tabs">
+      <div
+  className="event-tabs"
+  data-aos="fade-up"
+  suppressHydrationWarning
+>
+
         {Object.keys(eventData).map((category) => (
+
           <button
             key={category}
-            className={` ${activeTab === category ? "active" : ""}`}
+            className={`${activeTab === category ? "active" : ""}`}
             onClick={() =>
               setActiveTab(category as keyof typeof eventData)
             }
           >
             {category}
           </button>
+
         ))}
+
       </div>
 
       {/* EVENTS GRID */}
 
-      <div className="events-grid">
+      <div key={activeTab} className="events-grid fade-events">
+
         {eventData[activeTab].map((event, index) => (
-          <div key={index} className="event-card">
+
+          <div
+            key={index}
+            className="event-card"
+            data-aos="zoom-in"
+            data-aos-delay={index * 100}
+          >
 
             <img
               src={event.image}
@@ -96,7 +119,9 @@ export default function Events() {
             </a>
 
           </div>
+
         ))}
+
       </div>
 
     </div>
