@@ -230,7 +230,7 @@ export default function Team() {
         <div className="team-card">
   <img src="/team/techhead1.jpg" alt="faculty"/>
 
-  <h3 className="team-name">Preediksha</h3>
+  <h3 className="team-name">Preethiksha</h3>
   <p>Technical Head</p>
 
   <div className="team-social">
