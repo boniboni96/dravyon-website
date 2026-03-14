@@ -1,511 +1,386 @@
 "use client";
 
+import { motion, type Variants } from "framer-motion";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const stagger: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+type Member = {
+  name: string;
+  role: string;
+  img: string;
+  instagram?: string;
+  whatsapp?: string;
+};
+
+function SectionHeading({ title }: { title: string }) {
+  return (
+    <div style={{ textAlign: "center", margin: "70px 0 40px" }}>
+      <h2
+        style={{
+          fontSize: "clamp(18px, 3vw, 26px)",
+          fontWeight: 800,
+          letterSpacing: 3,
+          textTransform: "uppercase",
+          background: "linear-gradient(90deg, #ff512f, #ff7a18, #ffd200)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          display: "inline-block",
+        }}
+      >
+        {title}
+      </h2>
+      <div
+        style={{
+          height: 2,
+          width: 60,
+          background: "linear-gradient(90deg, #ff512f, #ff7a18)",
+          margin: "10px auto 0",
+          borderRadius: 2,
+        }}
+      />
+    </div>
+  );
+}
+
+function TeamCard({ member }: { member: Member }) {
+  return (
+    <motion.div
+      variants={fadeUp}
+      whileHover={{ y: -8, boxShadow: "0 0 30px rgba(255,122,24,0.5)" }}
+      style={{
+        background: "#111",
+        borderRadius: 16,
+        overflow: "hidden",
+        border: "1px solid rgba(255,122,24,0.2)",
+        width: 220,
+        flexShrink: 0,
+      }}
+    >
+      <img
+        src={member.img}
+        alt={member.name}
+        width={220}
+        height={250}
+        style={{
+          width: "100%",
+          height: 250,
+          objectFit: "cover",
+          objectPosition: "top",
+          display: "block",
+        }}
+        onError={(e) => {
+          (e.currentTarget as HTMLImageElement).src = "/logo.png";
+        }}
+      />
+      <div style={{ padding: "14px 12px 16px", textAlign: "center" }}>
+        <h3
+          style={{
+            fontSize: 15,
+            fontWeight: 700,
+            marginBottom: 4,
+            background: "linear-gradient(90deg, #ff512f, #ff7a18, #ffd200)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
+          {member.name}
+        </h3>
+        <p style={{ color: "#555", fontSize: 11, marginBottom: 10, letterSpacing: 1, textTransform: "uppercase" }}>
+          {member.role}
+        </p>
+        <div style={{ display: "flex", justifyContent: "center", gap: 14 }}>
+          {member.instagram && (
+            <a
+              href={member.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#888", fontSize: 17, transition: "color 0.3s" }}
+              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                (e.currentTarget.style.color = "#ff7a18")
+              }
+              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                (e.currentTarget.style.color = "#888")
+              }
+            >
+              <FaInstagram />
+            </a>
+          )}
+          {member.whatsapp && (
+            <a
+              href={member.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#888", fontSize: 17, transition: "color 0.3s" }}
+              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                (e.currentTarget.style.color = "#25d366")
+              }
+              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                (e.currentTarget.style.color = "#888")
+              }
+            >
+              <FaWhatsapp />
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function TeamGrid({ members }: { members: Member[] }) {
+  return (
+    <motion.div
+      variants={stagger}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        gap: 24,
+      }}
+    >
+      {members.map((m, i) => (
+        <TeamCard key={m.name + i} member={m} />
+      ))}
+    </motion.div>
+  );
+}
+
+const faculty: Member[] = [
+  {
+    name: "Faculty Name 1",
+    role: "Faculty Coordinator",
+    img: "/team/faculty1.jpg",
+    instagram: "https://instagram.com/",
+    whatsapp: "https://wa.me/91xxxxxxxxxx",
+  },
+  {
+    name: "Faculty Name 2",
+    role: "Faculty Coordinator",
+    img: "/team/faculty2.jpg",
+    instagram: "https://instagram.com/",
+    whatsapp: "https://wa.me/91xxxxxxxxxx",
+  },
+];
+
+const organizers1: Member[] = [
+  {
+    name: "R.S.Harshavarthan",
+    role: "Organizer",
+    img: "/team/organizer1.jpg",
+    instagram: "https://www.instagram.com/hahaharshaaa._/",
+    whatsapp: "https://wa.me/919884054678",
+  },
+  {
+    name: "Renganathan",
+    role: "Organizer",
+    img: "/team/organizer2.jpg",
+    instagram: "https://www.instagram.com/just.ranga._.x7/",
+    whatsapp: "https://wa.me/918122360962",
+  },
+];
+
+const organizers2: Member[] = [
+  {
+    name: "Rudhran",
+    role: "Organizer",
+    img: "/team/organizer3.jpg",
+    instagram: "https://www.instagram.com/rxdhran_29/",
+    whatsapp: "https://wa.me/918925512356",
+  },
+  {
+    name: "Rahul",
+    role: "Organizer",
+    img: "/team/faculty1.jpg",
+    instagram: "https://instagram.com/",
+    whatsapp: "https://wa.me/918668079354",
+  },
+];
+
+const financialHeads: Member[] = [
+  {
+    name: "Benjamin",
+    role: "Financial Head",
+    img: "/team/financehead1.jpg",
+    instagram: "https://www.instagram.com/real_benjamin_danish/",
+    whatsapp: "https://wa.me/919514418999",
+  },
+  {
+    name: "Harin",
+    role: "Financial Head",
+    img: "/team/harin.jpg",
+    instagram: "https://www.instagram.com/im_hari_5092/",
+    whatsapp: "https://wa.me/918870422416",
+  },
+];
+
+const techHeads: Member[] = [
+  {
+    name: "Preethiksha",
+    role: "Technical Head",
+    img: "/team/techhead1.jpg",
+    instagram: "https://www.instagram.com/preethiksha__._/",
+    whatsapp: "https://wa.me/918754488231",
+  },
+  {
+    name: "Suhail",
+    role: "Technical Head",
+    img: "/team/faculty1.jpg",
+    instagram: "https://instagram.com/",
+    whatsapp: "https://wa.me/919876543210",
+  },
+];
+
+const nonTechHeads: Member[] = [
+  {
+    name: "Benita Johnson",
+    role: "Non Technical Head",
+    img: "/team/nontechhead1.jpg",
+    instagram: "https://www.instagram.com/benita_johnson_28/",
+    whatsapp: "https://wa.me/918428932593",
+  },
+  {
+    name: "Tamizharasi",
+    role: "Non Technical Head",
+    img: "/team/nontechhead2.jpg",
+    instagram: "https://instagram.com/",
+    whatsapp: "https://wa.me/918754599157",
+  },
+];
+
+const sportsHeads: Member[] = [
+  {
+    name: "Rahul",
+    role: "Sports Head",
+    img: "/team/faculty1.jpg",
+    instagram: "https://instagram.com/",
+    whatsapp: "https://wa.me/919876543210",
+  },
+  {
+    name: "Rahul",
+    role: "Sports Head",
+    img: "/team/faculty1.jpg",
+    instagram: "https://instagram.com/",
+    whatsapp: "https://wa.me/919876543210",
+  },
+  {
+    name: "Rahul",
+    role: "Sports Head",
+    img: "/team/faculty1.jpg",
+    instagram: "https://instagram.com/",
+    whatsapp: "https://wa.me/919876543210",
+  },
+];
+
+const mediaHead: Member[] = [
+  {
+    name: "Kumaran",
+    role: "Media Head",
+    img: "/team/faculty1.jpg",
+    instagram: "https://instagram.com/",
+    whatsapp: "https://wa.me/917305875591",
+  },
+];
+
+const workshopHead: Member[] = [
+  {
+    name: "Suraj",
+    role: "Workshop Head",
+    img: "/team/workshophead.jpg",
+    instagram: "https://instagram.com/",
+    whatsapp: "https://wa.me/919150320989",
+  },
+];
 
 export default function Team() {
   return (
-    <div className="team-page">
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#050505",
+        paddingTop: 100,
+        paddingBottom: 100,
+        overflowX: "hidden",
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        style={{ textAlign: "center", marginBottom: 10, padding: "0 5%" }}
+      >
+        <p
+          style={{
+            color: "#ff7a18",
+            letterSpacing: 4,
+            fontSize: 12,
+            marginBottom: 10,
+            textTransform: "uppercase",
+          }}
+        >
+          The People Behind It
+        </p>
+        <h1
+          style={{
+            fontSize: "clamp(32px, 6vw, 60px)",
+            fontWeight: 900,
+            background: "linear-gradient(90deg, #ff512f, #ff7a18, #ffd200)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            letterSpacing: 3,
+          }}
+        >
+          Our Team
+        </h1>
+        <p style={{ color: "#555", fontSize: 15, marginTop: 10 }}>
+          The minds and hearts powering DRAVYON 2K26
+        </p>
+      </motion.div>
 
-      <h1 className="team-title">Our Team</h1>
+      <div style={{ padding: "0 5%", maxWidth: 1100, margin: "0 auto" }}>
 
-      {/* FACULTY */}
-      <div className="team-grid two-grid">
+        <SectionHeading title="Faculty Coordinators" />
+        <TeamGrid members={faculty} />
 
-        <div className="team-card" data-aos="flip-left">
-          <img src="/team/faculty1.jpg" alt="faculty"/>
-          <h3>Faculty Name 1</h3>
-          <p>Faculty Coordinator</p>
-
-          <div className="team-social">
-            <a href="https://instagram.com/" target="_blank">
-              <FaInstagram/>
-            </a>
-
-            <a href="https://wa.me/91xxxxxxxxxx" target="_blank">
-              <FaWhatsapp/>
-            </a>
-          </div>
+        <SectionHeading title="Organizers" />
+        <TeamGrid members={organizers1} />
+        <div style={{ marginTop: 24 }}>
+          <TeamGrid members={organizers2} />
         </div>
 
-        <div className="team-card">
-          <img src="/team/faculty2.jpg" alt="faculty"/>
-          <h3>Faculty Name 2</h3>
-          <p>Faculty Coordinator</p>
+        <SectionHeading title="Financial Heads" />
+        <TeamGrid members={financialHeads} />
 
-          <div className="team-social">
-            <a href="https://instagram.com/" target="_blank">
-              <FaInstagram/>
-            </a>
+        <SectionHeading title="Technical Heads" />
+        <TeamGrid members={techHeads} />
 
-            <a href="https://wa.me/91xxxxxxxxxx" target="_blank">
-              <FaWhatsapp/>
-            </a>
-          </div>
-        </div>
+        <SectionHeading title="Non Technical Heads" />
+        <TeamGrid members={nonTechHeads} />
 
-      </div>
+        <SectionHeading title="Sports Heads" />
+        <TeamGrid members={sportsHeads} />
 
+        <SectionHeading title="Media Head" />
+        <TeamGrid members={mediaHead} />
 
-      {/* ORGANIZERS */}
-      <div className="team-role">Organizers</div>
-
-      <div className="team-grid two-grid">
-
-        <div className="team-card">
-  <img src="/team/organizer1.jpg" alt="faculty"/>
-
-  <h3 className="team-name">R.S.Harshavarthan</h3>
-  <p>Organizer</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://www.instagram.com/hahaharshaaa._/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/919884054678"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-        <div className="team-card">
-  <img src="/team/organizer2.jpg" alt="faculty"/>
-
-  <h3 className="team-name">Renganathan</h3>
-  <p>Organizer</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://www.instagram.com/just.ranga._.x7/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/918122360962"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-        <div className="team-card">
-  <img src="/team/faculty1.jpg" alt="faculty"/>
-
-  <h3 className="team-name">Rahul</h3>
-  <p>Organizer</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://instagram.com/your_instagram_id"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/918925512356"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-        <div className="team-card">
-  <img src="/team/faculty1.jpg" alt="faculty"/>
-
-  <h3 className="team-name">Rahul</h3>
-  <p>Organizer</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://instagram.com/your_instagram_id"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/918668079354"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
+        <SectionHeading title="Workshop Head" />
+        <TeamGrid members={workshopHead} />
 
       </div>
-      {/* FINANCIAL HEADS */}
-      <div className="team-role">Financial Heads</div>
-
-      <div className="team-grid two-grid">
-
-        <div className="team-card">
-  <img src="/team/financehead1.jpg" alt="faculty"/>
-
-  <h3 className="team-name">Benjamin</h3>
-  <p>Financial Head</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://www.instagram.com/real_benjamin_danish/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/919514418999"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-       <div className="team-card">
-  <img src="/team/harin.jpg" alt="Harin"/>
-
-  <h3 className="team-name">Harin</h3>
-  <p>Financial Head</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://www.instagram.com/im_hari_5092/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/918870422416"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-      </div>
-
-
-      {/* TECH HEADS */}
-      <div className="team-role">Technical Heads</div>
-
-      <div className="team-grid two-grid">
-
-        <div className="team-card">
-  <img src="/team/techhead1.jpg" alt="faculty"/>
-
-  <h3 className="team-name">Preethiksha</h3>
-  <p>Technical Head</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://www.instagram.com/preethiksha__._/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/87544 88231"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-        <div className="team-card">
-  <img src="/team/faculty1.jpg" alt="faculty"/>
-
-  <h3 className="team-name">Suhail</h3>
-  <p>Technical Head</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://instagram.com/your_instagram_id"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/919876543210"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-      </div>
-
-
-      {/* NON TECH HEADS */}
-      <div className="team-role">Non Technical Heads</div>
-
-      <div className="team-grid two-grid">
-
-        <div className="team-card">
-  <img src="/team/nontechhead1.jpg" alt="faculty"/>
-
-  <h3 className="team-name">Benita Johnson</h3>
-  <p>Non Technical Head</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://www.instagram.com/benita_johnson_28/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/9184289 32593"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-        <div className="team-card">
-  <img src="/team/nontechhead2.jpg" alt="faculty"/>
-
-  <h3 className="team-name">Tamizharasi</h3>
-  <p>Non Technical Head</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://instagram.com/your_instagram_id"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/9187545 99157"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-      </div>
-
-
-
-
-      {/* SPORTS HEADS */}
-      <div className="team-role">Sports Heads</div>
-
-      <div className="team-grid three-grid">
-
-        <div className="team-card">
-  <img src="/team/faculty1.jpg" alt="faculty"/>
-
-  <h3 className="team-name">Rahul</h3>
-  <p>Faculty Coordinator</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://instagram.com/your_instagram_id"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/919876543210"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-       <div className="team-card">
-  <img src="/team/faculty1.jpg" alt="faculty"/>
-
-  <h3 className="team-name">Rahul</h3>
-  <p>Faculty Coordinator</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://instagram.com/your_instagram_id"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/919876543210"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-        <div className="team-card">
-  <img src="/team/faculty1.jpg" alt="faculty"/>
-
-  <h3 className="team-name">Rahul</h3>
-  <p>Faculty Coordinator</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://instagram.com/your_instagram_id"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/919876543210"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-      </div>
-
-
-      {/* MEDIA HEAD */}
-      <div className="team-role">Media Head</div>
-
-      <div className="team-grid one-grid">
-
-        <div className="team-card">
-  <img src="/team/faculty1.jpg" alt="faculty"/>
-
-  <h3 className="team-name">Kumaran</h3>
-  <p>Media Head</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://instagram.com/your_instagram_id"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/917305875591"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-      </div>
-
-
-      {/* WORKSHOP HEAD */}
-      <div className="team-role">Workshop Head</div>
-
-      <div className="team-grid one-grid">
-
-        <div className="team-card">
-  <img src="/team/workshophead.jpg" alt="faculty"/>
-
-  <h3 className="team-name">Suraj</h3>
-  <p>Workshop Head</p>
-
-  <div className="team-social">
-
-    <a
-      href="https://instagram.com/your_instagram_id"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaInstagram />
-    </a>
-
-    <a
-      href="https://wa.me/919150320989"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp />
-    </a>
-
-  </div>
-</div>
-
-      </div>
-
     </div>
   );
 }
