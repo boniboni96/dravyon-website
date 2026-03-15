@@ -193,7 +193,7 @@ export default function Home() {
     <main style={{ background: "#050505", overflowX: "hidden" }}>
 
       {/* ===================== 1. HERO ===================== */}
-      <div style={{ position: "relative", height: "100vh", width: "100%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ position: "relative", height: "100vh", width: "100%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", background: "radial-gradient(circle at 30% 40%, rgba(255,80,0,0.3), transparent 60%), radial-gradient(circle at 70% 60%, rgba(0,100,255,0.2), transparent 60%), #050505" }}>
 
         <video autoPlay loop muted playsInline style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 0 }}>
           <source src="/phoenix.mp4" type="video/mp4" />
